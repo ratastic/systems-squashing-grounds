@@ -6,6 +6,7 @@ public class BugDownMovement : MonoBehaviour
     public Transform squashPos;
     public bool isReversed = false;
     private Vector3 trajectory;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
