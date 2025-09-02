@@ -5,7 +5,7 @@ public class BulletLogic : MonoBehaviour
     private Transform player;
     public GameObject bulletPrefab;
     public Rigidbody2D bulletRb;
-    public float bulletSpeed = 3f;
+    public float bulletSpeed = 5f;
     public Vector2 bulletSpawnOffsetPosX = new Vector2(.5f, 0f);
     public Vector2 bulletSpawnOffsetNegX = new Vector2(-.5f, 0f);
     public Vector2 bulletSpawnOffsetPosY = new Vector2(0f, .5f);
