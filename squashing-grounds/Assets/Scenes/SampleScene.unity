@@ -340,6 +340,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &933035036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 933035037}
+  m_Layer: 0
+  m_Name: powerUpSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &933035037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933035036}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.08606, y: 0.09468, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1278340361
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,6 +607,7 @@ GameObject:
   - component: {fileID: 1562381111}
   - component: {fileID: 1562381112}
   - component: {fileID: 1562381113}
+  - component: {fileID: 1562381114}
   m_Layer: 0
   m_Name: farmerPlayer
   m_TagString: Untagged
@@ -772,10 +804,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugDown: {fileID: 2422544675831129233}
   spawnInterval: 2
-  topSpawnRange: {x: -6.5, y: 6.5}
+  horizontalSpawnRange: {x: -6.5, y: 6.5}
   topSpawnPosY: 5
+  bottomSpawnPosY: -5
   squashPos: {x: 0, y: 0, z: 0}
-  bugSpeed: 2
+  bugSpeed: 1
+--- !u!114 &1562381114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562381106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a56902d462f48eead443efc66f9e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1595227773 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4878498144055325768, guid: bdcaf49e339dd40938383d2e1022d90c, type: 3}
@@ -848,7 +893,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4237578096761259824, guid: bdcaf49e339dd40938383d2e1022d90c, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4878498144055325768, guid: bdcaf49e339dd40938383d2e1022d90c, type: 3}
       propertyPath: m_Name
@@ -859,56 +904,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdcaf49e339dd40938383d2e1022d90c, type: 3}
---- !u!1 &2138387224
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2138387225}
-  - component: {fileID: 2138387226}
-  m_Layer: 0
-  m_Name: bugSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2138387225
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138387224}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.62, y: 6.14, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2138387226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138387224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84dd97e970cfe4e34abe33a0c279147a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bugDown: {fileID: 2422544675831129233}
-  spawnInterval: 3
-  topSpawnRange: {x: -6.5, y: 6.5}
-  topSpawnPosY: 5
-  squashPos: {x: 0, y: 0, z: 0}
-  bugSpeed: 3
 --- !u!1001 &536399074602942035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -921,6 +916,22 @@ PrefabInstance:
       propertyPath: squashPos
       value: 
       objectReference: {fileID: 1415255201}
+    - target: {fileID: 1239617294447727156, guid: b41ef2371916c43a99cf3147542ad5eb, type: 3}
+      propertyPath: m_Size.x
+      value: 2.5480652
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239617294447727156, guid: b41ef2371916c43a99cf3147542ad5eb, type: 3}
+      propertyPath: m_Size.y
+      value: 2.5480604
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239617294447727156, guid: b41ef2371916c43a99cf3147542ad5eb, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.051603317
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239617294447727156, guid: b41ef2371916c43a99cf3147542ad5eb, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.051603317
+      objectReference: {fileID: 0}
     - target: {fileID: 2485216800278526162, guid: b41ef2371916c43a99cf3147542ad5eb, type: 3}
       propertyPath: m_Name
       value: bugDown
@@ -990,5 +1001,5 @@ SceneRoots:
   - {fileID: 1415255201}
   - {fileID: 1562381110}
   - {fileID: 1696355491}
-  - {fileID: 2138387225}
   - {fileID: 536399074602942035}
+  - {fileID: 933035037}
