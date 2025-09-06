@@ -1,7 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Unity.Cinemachine;
 
 public class SquashClick : MonoBehaviour
 {
+    public CinemachineImpulseSource impulseSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,9 +21,11 @@ public class SquashClick : MonoBehaviour
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
-            if (hit.collider.CompareTag("bugDown"))
+            if (hit.collider.CompareTag("bugs"))
             {
+                CameraShakeManager.instance.CameraRumble(impulseSource);
                 Destroy(hit.collider.gameObject);
+
             }
         }
     }
