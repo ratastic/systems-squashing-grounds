@@ -88,7 +88,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0.426
   cropToFit:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
 --- !u!114 &-1534354289419719361
 MonoBehaviour:
@@ -164,7 +164,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   intensity:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   clamp:
     m_OverrideState: 0

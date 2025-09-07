@@ -13,6 +13,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator animator;
 
+    public HeartManager heartManager;
+    private float cooldown = 1.0f;
+    private float lastHitTime;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,10 +45,12 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("bugs"))
+        if (col.gameObject.CompareTag("bugs") && Time.time - lastHitTime > cooldown)
         {
             CameraShakeManager.instance.CameraRumble(playerHit);
             Destroy(col.gameObject);
+            heartManager.LoseHeart(1);
+            lastHitTime = Time.time;
         }
     }
 }
