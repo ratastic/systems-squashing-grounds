@@ -45,12 +45,12 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("bugs") && Time.time - lastHitTime > cooldown)
+        if (col.gameObject.CompareTag("bugs") && Time.time - lastHitTime > cooldown) // 1 second cooldown; i don't think it works
         {
             CameraShakeManager.instance.CameraRumble(playerHit);
             Destroy(col.gameObject);
-            heartManager.LoseHeart(1);
-            lastHitTime = Time.time;
+            heartManager.LoseHeart(1); // calls method from manager script and passes in 1 to represent damage amount
+            lastHitTime = Time.time; // resets cooldwon
         }
     }
 }
