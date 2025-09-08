@@ -8,7 +8,6 @@ public class HeartManager : MonoBehaviour
 {
     public int maxHearts = 5;
     public int currentHearts;
-    //public Color currentColor;
 
     public GameObject[] heartImgs;
 
@@ -29,6 +28,8 @@ public class HeartManager : MonoBehaviour
 
     private AudioSource deathSound;
 
+    public TextMeshProUGUI countdownText;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,6 +42,8 @@ public class HeartManager : MonoBehaviour
         replayButton.SetActive(false);
 
         deathSound = GetComponent<AudioSource>();
+
+        StartCoroutine(CountdownToStart()); // countdown setup
     }
 
     // Update is called once per frame
@@ -84,7 +87,6 @@ public class HeartManager : MonoBehaviour
         gameOverAnim.SetBool("playGameOver", true);
         StartCoroutine(DisplayScoreboard());
         timerRunning = false;
-        //bugManager.spawnInterval = 0f;
     }
 
     public void UpdateTimerUI()
@@ -107,5 +109,25 @@ public class HeartManager : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
         replayButton.SetActive(true);
+    }
+
+    private IEnumerator CountdownToStart()
+    {
+        bugManager.StopSpawning(); // bugs not spawning
+        timerRunning = false; // timer not running
+
+        int countdownTime = 3;
+        while (countdownTime > 0)
+        {
+            countdownText.text = countdownTime.ToString(); // updates countdown numbers
+            yield return new WaitForSeconds(1f);
+            countdownTime--;
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        countdownText.gameObject.SetActive(false);
+        timerRunning = true;
+        bugManager.StartSpawning(); 
     }
 }

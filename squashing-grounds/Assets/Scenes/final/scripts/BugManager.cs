@@ -24,15 +24,20 @@ public class BugManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        topBugSpawning = StartCoroutine(TopBugSpawning());
-        bottomBugSpawning = StartCoroutine(BottomBugSpawning());
-        increaseSpawnFrequency = StartCoroutine(IncreaseSpawnFrequency());
+     
     }
 
     // Update is called once per frame
     void Update()
     {
        
+    }
+
+    public void StartSpawning()
+    {
+        topBugSpawning = StartCoroutine(TopBugSpawning());
+        bottomBugSpawning = StartCoroutine(BottomBugSpawning());
+        increaseSpawnFrequency = StartCoroutine(IncreaseSpawnFrequency());
     }
 
     public IEnumerator TopBugSpawning()

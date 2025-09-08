@@ -5,6 +5,7 @@ using Unity.Cinemachine;
 
 public class SquashClick : MonoBehaviour
 {
+    public AudioSource bugSquashNoise;
     //public CinemachineImpulseSource impulseSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,6 +26,7 @@ public class SquashClick : MonoBehaviour
             {
                 //CameraShakeManager.instance.CameraRumble(impulseSource);
                 Destroy(hit.collider.gameObject);
+                bugSquashNoise.Play();
 
             }
         }
