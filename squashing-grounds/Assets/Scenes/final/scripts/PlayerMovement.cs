@@ -17,11 +17,19 @@ public class PlayerMovement : MonoBehaviour
     private float cooldown = 1.0f;
     private float lastHitTime;
 
+    public Color[] heartColors;
+    private SpriteRenderer playerRenderer;
+    private int currentColor = 0;
+
+    private AudioSource hitSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        playerRenderer = GetComponent<SpriteRenderer>();
+        hitSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("isWalking", true);
             //CameraShakeManager.instance.CameraRumble(playerWalk);
-
         }
         else
         {
@@ -49,6 +56,16 @@ public class PlayerMovement : MonoBehaviour
         {
             CameraShakeManager.instance.CameraRumble(playerHit);
             Destroy(col.gameObject);
+            hitSound.Play();
+
+            if (currentColor < heartColors.Length)
+            {
+                playerRenderer.color = heartColors[currentColor];
+                Debug.Log("color changing" + heartColors[currentColor]);
+
+                currentColor++;
+            }
+
             heartManager.LoseHeart(1); // calls method from manager script and passes in 1 to represent damage amount
             lastHitTime = Time.time; // resets cooldwon
         }
