@@ -5,8 +5,8 @@ using Unity.Cinemachine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveForce = 1f;
-    private Rigidbody2D rb2d;
+    public float moveForce = 1f; //THIS
+    private Rigidbody2D rb2d; //THIS
 
     public CinemachineImpulseSource playerHit;
     //public CinemachineImpulseSource playerWalk;
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>(); //THIS
         animator = GetComponent<Animator>();
         playerRenderer = GetComponent<SpriteRenderer>();
         hitSound = GetComponent<AudioSource>();
@@ -35,9 +35,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-        rb2d.linearVelocity = new Vector2(moveX * moveForce, moveY * moveForce);
+        float moveX = Input.GetAxisRaw("Horizontal"); // THIS
+        float moveY = Input.GetAxisRaw("Vertical"); // THIS 
+        rb2d.linearVelocity = new Vector2(moveX * moveForce, moveY * moveForce); // THIS
 
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
