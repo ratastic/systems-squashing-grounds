@@ -25,6 +25,7 @@ public class HeartManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
     public GameObject replayButton;
+    public GameObject homeButton;
 
     private AudioSource deathSound;
 
@@ -40,6 +41,7 @@ public class HeartManager : MonoBehaviour
         playModeCanvas.SetActive(true);
         scoreboardCanvas.SetActive(false);
         replayButton.SetActive(false);
+        homeButton.SetActive(false);
 
         deathSound = GetComponent<AudioSource>();
 
@@ -107,8 +109,9 @@ public class HeartManager : MonoBehaviour
         int seconds = Mathf.FloorToInt(surviveTime % 60);
         scoreText.text = string.Format("time survived: {0:00}:{1:00}", minutes, seconds);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         replayButton.SetActive(true);
+        homeButton.SetActive(true);
     }
 
     private IEnumerator CountdownToStart()

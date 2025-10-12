@@ -6,8 +6,8 @@ public class ControlsButton : MonoBehaviour
     public GameObject playButton;
     public GameObject controlButton;
     public GameObject title;
-
     public GameObject controlInfo;
+    public AudioSource clickSound;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,6 +31,7 @@ public class ControlsButton : MonoBehaviour
         title.SetActive(false);
 
         controlInfo.SetActive(true);
+        clickSound.Play();
     }
 
     public void CloseControls()
@@ -40,5 +41,6 @@ public class ControlsButton : MonoBehaviour
         title.SetActive(true);
 
         controlInfo.SetActive(false);
+        clickSound.Play();
     }
 }
